@@ -1,11 +1,10 @@
-import React from "react";
-import Icon from "./App/components/Icon";
-import ListItem from "./App/components/ListItem";
-import Screen from "./App/components/Screen";
-import AccountScreen from "./App/screens/AccountScreen";
+import React, { useState } from "react";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
-import MessagesScreen from "./App/screens/MessagesScreen";
+import LoggingScreen from "./app/screens/LoginScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
-  return <AccountScreen />;
+  return <ListingEditScreen />;
 }

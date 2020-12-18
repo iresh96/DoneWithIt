@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { FlatList, SafeAreaView, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
+
 import Screen from "../components/Screen";
-import Constants from "expo-constants";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeperator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import {
+  ListItem,
+  ListItemDeleteAction,
+  ListItemSeparator,
+} from "../components/lists";
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Mosh Hamedani",
+    description: "Hey! Is this item still available?",
     image: require("../assets/mosh.jpg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "Mosh Hamedani",
+    description:
+      "I'm interested in this item. When will you be able to post it?",
     image: require("../assets/mosh.jpg"),
   },
 ];
@@ -26,6 +29,7 @@ function MessagesScreen(props) {
   const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message) => {
+    // Delete the message from messages
     setMessages(messages.filter((m) => m.id !== message.id));
   };
 
@@ -39,7 +43,7 @@ function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log("Message", item)}
+            onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
@@ -47,7 +51,7 @@ function MessagesScreen(props) {
         )}
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
-        onRefresh={() =>
+        onRefresh={() => {
           setMessages([
             {
               id: 2,
@@ -55,12 +59,13 @@ function MessagesScreen(props) {
               description: "D2",
               image: require("../assets/mosh.jpg"),
             },
-          ])
-        }
+          ]);
+        }}
       />
     </Screen>
   );
 }
+
 const styles = StyleSheet.create({});
 
 export default MessagesScreen;

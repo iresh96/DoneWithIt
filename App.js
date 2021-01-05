@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import NavigationTheme from "./app/navigation/NavigationTheme";
+
+import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer theme={NavigationTheme}>
+    <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
     </NavigationContainer>
   );
